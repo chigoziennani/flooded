@@ -143,19 +143,14 @@ npx tsc --noEmit
 
 Device captures live in `docs/screenshots/`. Below is a **curated set** for the README; the rest are still useful for decks or docs.
 
-**Best for the repo overview (story + visuals):**
-
-| File           | Why include                                                                                |
-| -------------- | ------------------------------------------------------------------------------------------ |
-| `IMG_7521.PNG` | **Welcome** — brand, value props (tall sizing / fit / alerts), CTAs, course footer         |
-| `IMG_7524.PNG` | **Home** — fit-match %, search, category chips, product grid (hero shot for the prototype) |
-| `IMG_7525.PNG` | **Product detail** — hero image, fit match, buy / track / fit check                        |
-| `IMG_7529.PNG` | **Profile** — session, dark mode, measurements summary, wishlist, About                    |
-
-**Strong additions for a second row (flow & depth):**
+**Repo Overview (story + visuals):**
 
 | File           | Why include                                                                                   |
 | -------------- | --------------------------------------------------------------------------------------------- |
+| `IMG_7521.PNG` | **Welcome** — brand, value props (tall sizing / fit / alerts), CTAs, course footer            |
+| `IMG_7524.PNG` | **Home** — fit-match %, search, category chips, product grid (hero shot for the prototype)    |
+| `IMG_7525.PNG` | **Product detail** — hero image, fit match, buy / track / fit check                           |
+| `IMG_7529.PNG` | **Profile** — session, dark mode, measurements summary, wishlist, About                       |
 | `IMG_7523.PNG` | **Onboarding measurements** — drum pickers, torso, progress (core differentiator)             |
 | `IMG_7527.PNG` | **Search** — browse-by-category, sale and restock rails                                       |
 | `IMG_7531.PNG` | **Demo checkout** — payment sheet + _“Demo simulation — no real payment”_ (sets expectations) |
