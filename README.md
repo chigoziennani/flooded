@@ -1,7 +1,5 @@
 # Flooded: Tall-Fit Fashion Retail (Mobile Prototype)
 
-**Repository:** [github.com/chigoziennani/flooded](https://github.com/chigoziennani/flooded)
-
 ## Overview
 
 This repository is an **Expo + React Native** mobile app prototype for a premium **tall-fit** shopping experience: browse curated apparel and footwear, capture body measurements, see **fit-match scores** against size charts, track **stock and restock alerts**, and walk through a **demo checkout** flow—all with a minimal light UI and **local-only demo state** (no backend).
