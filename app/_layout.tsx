@@ -1,59 +1,117 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { useEffect, useMemo } from 'react';
 import 'react-native-reanimated';
 
-import { useColorScheme } from '@/components/useColorScheme';
+import { fontAssets } from '@/constants/fonts';
+import { Font } from '@/constants/fonts';
+import {
+  AppThemeProvider,
+  NavigationThemeProvider,
+  useTheme,
+} from '@/context/ThemeContext';
+import { FloodedProvider } from '@/context/FloodedContext';
 
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from 'expo-router';
+export { ErrorBoundary } from 'expo-router';
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: '(tabs)',
 };
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    ...fontAssets,
     ...FontAwesome.font,
   });
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
   }, [error]);
 
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
+    if (loaded) SplashScreen.hideAsync();
   }, [loaded]);
 
-  if (!loaded) {
-    return null;
-  }
-
-  return <RootLayoutNav />;
-}
-
-function RootLayoutNav() {
-  const colorScheme = useColorScheme();
+  if (!loaded) return null;
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+    <FloodedProvider>
+      <AppThemeProvider>
+        <RootNavigation />
+      </AppThemeProvider>
+    </FloodedProvider>
+  );
+}
+
+function RootNavigation() {
+  const { colors, navigationTheme, isDark } = useTheme();
+
+  const sharedScreenOptions = useMemo(
+    () => ({
+      headerStyle: { backgroundColor: colors.bg },
+      headerTintColor: colors.accent,
+      headerTitleStyle: {
+        fontFamily: Font.medium,
+        fontSize: 15,
+        color: colors.text,
+      },
+      headerShadowVisible: false,
+      contentStyle: { backgroundColor: colors.bg },
+      animation: 'default' as const,
+    }),
+    [colors],
+  );
+
+  return (
+    <NavigationThemeProvider value={navigationTheme}>
+      <StatusBar style={isDark ? 'light' : 'dark'} />
+      <Stack screenOptions={sharedScreenOptions}>
+        <Stack.Screen
+          name="(tabs)"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="welcome"
+          options={{ headerShown: false, presentation: 'fullScreenModal' }}
+        />
+        <Stack.Screen
+          name="auth/sign-up"
+          options={{ title: 'Create account', presentation: 'card' }}
+        />
+        <Stack.Screen
+          name="auth/sign-in"
+          options={{ title: 'Sign in', presentation: 'card' }}
+        />
+        <Stack.Screen
+          name="profile/height"
+          options={{ title: 'Height' }}
+        />
+        <Stack.Screen
+          name="profile/measurements"
+          options={{ title: 'Your measurements' }}
+        />
+        <Stack.Screen
+          name="product/[id]"
+          options={{ title: '', headerBackTitle: 'Back' }}
+        />
+        <Stack.Screen
+          name="checkout/confirm"
+          options={{ headerShown: false, presentation: 'modal' }}
+        />
+        <Stack.Screen
+          name="wishlist"
+          options={{ title: 'Saved', headerBackTitle: 'Profile' }}
+        />
+        <Stack.Screen
+          name="modal"
+          options={{ presentation: 'modal', title: 'About' }}
+        />
       </Stack>
-    </ThemeProvider>
+    </NavigationThemeProvider>
   );
 }
