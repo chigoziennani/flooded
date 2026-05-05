@@ -147,21 +147,21 @@ Device captures live in `docs/screenshots/`. Below is a **curated set** for the 
 
 **Best for the repo overview (story + visuals):**
 
-| File | Why include |
-|------|-------------|
-| `IMG_7521.PNG` | **Welcome** — brand, value props (tall sizing / fit / alerts), CTAs, course footer |
+| File           | Why include                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------ |
+| `IMG_7521.PNG` | **Welcome** — brand, value props (tall sizing / fit / alerts), CTAs, course footer         |
 | `IMG_7524.PNG` | **Home** — fit-match %, search, category chips, product grid (hero shot for the prototype) |
-| `IMG_7525.PNG` | **Product detail** — hero image, fit match, buy / track / fit check |
-| `IMG_7529.PNG` | **Profile** — session, dark mode, measurements summary, wishlist, About |
+| `IMG_7525.PNG` | **Product detail** — hero image, fit match, buy / track / fit check                        |
+| `IMG_7529.PNG` | **Profile** — session, dark mode, measurements summary, wishlist, About                    |
 
 **Strong additions for a second row (flow & depth):**
 
-| File | Why include |
-|------|-------------|
-| `IMG_7523.PNG` | **Onboarding measurements** — drum pickers, torso, progress (core differentiator) |
-| `IMG_7527.PNG` | **Search** — browse-by-category, sale and restock rails |
-| `IMG_7531.PNG` | **Demo checkout** — payment sheet + *“Demo simulation — no real payment”* (sets expectations) |
-| `IMG_7533.PNG` | **Order confirmed** — end of funnel, demo copy |
+| File           | Why include                                                                                   |
+| -------------- | --------------------------------------------------------------------------------------------- |
+| `IMG_7523.PNG` | **Onboarding measurements** — drum pickers, torso, progress (core differentiator)             |
+| `IMG_7527.PNG` | **Search** — browse-by-category, sale and restock rails                                       |
+| `IMG_7531.PNG` | **Demo checkout** — payment sheet + _“Demo simulation — no real payment”_ (sets expectations) |
+| `IMG_7533.PNG` | **Order confirmed** — end of funnel, demo copy                                                |
 
 <p align="center">
   <img src="docs/screenshots/IMG_7521.PNG" width="23%" alt="Welcome" />
@@ -185,7 +185,7 @@ If you add API keys later, use **`.env`** (ignored) and commit a **`.env.example
 ## Team Credits
 
 Made with ❤️ by **Chigozie Nnani**.
-Project shared with **Adedunmola Adeniyi** & **Chichere Ogbuebile**.
+Project created with **Adedunmola Adeniyi** & **Chichere Ogbuebile**.
 
 ## License & Ethics
 
